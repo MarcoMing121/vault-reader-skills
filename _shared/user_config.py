@@ -12,11 +12,11 @@ from pathlib import Path
 
 
 DEFAULT_CONFIG = {
-    "VAULT_PATH": "/root/.openclaw/shared/ObsidianVault",
-    "LEARNING_PATH": "/root/.openclaw/shared/ObsidianVault/Learning",
-    "SPARK_PATH": "/root/.openclaw/shared/ObsidianVault/灵光一现",
-    "GIT_COMMIT_ENABLED": True,
-    "GIT_PUSH_ENABLED": True,
+    "VAULT_PATH": "~/ObsidianVault",
+    "LEARNING_PATH": "~/ObsidianVault/Learning",
+    "SPARK_PATH": "~/ObsidianVault/灵光一现",
+    "GIT_COMMIT_ENABLED": False,
+    "GIT_PUSH_ENABLED": False,
 }
 
 
