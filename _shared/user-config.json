@@ -1,8 +1,0 @@
-{
-  "VAULT_PATH": "/root/.openclaw/shared/ObsidianVault",
-  "LEARNING_PATH": "/root/.openclaw/shared/ObsidianVault/Learning",
-  "LATEX_CACHE_PATH": "/root/.openclaw/shared/latex-cache",
-  "SPARK_PATH": "/root/.openclaw/shared/ObsidianVault/灵光一现",
-  "GIT_COMMIT_ENABLED": true,
-  "GIT_PUSH_ENABLED": true
-}

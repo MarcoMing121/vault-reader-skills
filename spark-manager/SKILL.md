@@ -321,7 +321,7 @@ AI:
 
 ## Step 0: 读取共享配置
 
-先读取 `../_shared/user-config.json`，如果 `../_shared/user-config.local.json` 存在，再用它覆盖默认值。
+先读取 `../_shared/user_config.py`，如果 `../_shared/user-config.local.json` 存在，再用它覆盖默认值。
 
 显式生成并在后续统一使用这些变量：
 
@@ -330,7 +330,7 @@ AI:
 
 ## 配置
 
-灵感目录路径从 `../_shared/user-config.json` 读取：
+灵感目录路径从 `../_shared/user_config.py` 读取：
 
 ```json
 {

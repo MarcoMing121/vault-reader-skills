@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """
 Vault-reader shared config loader.
-Reads paths from user-config.json (and user-config.local.json override).
+All configuration is embedded here — no external JSON needed.
+For local overrides, create user-config.local.json alongside this file.
 """
 
 import copy
@@ -13,7 +14,6 @@ from pathlib import Path
 DEFAULT_CONFIG = {
     "VAULT_PATH": "/root/.openclaw/shared/ObsidianVault",
     "LEARNING_PATH": "/root/.openclaw/shared/ObsidianVault/Learning",
-    "LATEX_CACHE_PATH": "/root/.openclaw/shared/latex-cache",
     "SPARK_PATH": "/root/.openclaw/shared/ObsidianVault/灵光一现",
     "GIT_COMMIT_ENABLED": True,
     "GIT_PUSH_ENABLED": True,
@@ -34,11 +34,10 @@ def load_config() -> dict:
     config = copy.deepcopy(DEFAULT_CONFIG)
     config_dir = Path(__file__).resolve().parent
 
-    for filename in ("user-config.json", "user-config.local.json"):
-        config_path = config_dir / filename
-        if not config_path.exists():
-            continue
-        with config_path.open("r", encoding="utf-8") as f:
+    # Only load local override if exists (optional)
+    local_path = config_dir / "user-config.local.json"
+    if local_path.exists():
+        with local_path.open("r", encoding="utf-8") as f:
             loaded = json.load(f)
         if isinstance(loaded, dict):
             _deep_merge(config, loaded)
@@ -52,10 +51,6 @@ def vault_path() -> Path:
 
 def learning_path() -> Path:
     return Path(load_config()["LEARNING_PATH"])
-
-
-def latex_cache_path() -> Path:
-    return Path(load_config()["LATEX_CACHE_PATH"])
 
 
 def spark_path() -> Path:
